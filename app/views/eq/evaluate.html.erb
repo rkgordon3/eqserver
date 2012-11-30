@@ -1,9 +1,10 @@
-<%= label_tag( 'Dr Todd\'s Mystery Evaluator', nil, :class => 'title' )%>
+<h2>Dr Todd's Mystery Evaluator</h2>
 <br/>
 <br/>
 <%= form_tag(eq_evaluate_path)  do -%>
    <%= label_tag "X" %><%= number_field_tag 'xvalue' %> 
    <%= label_tag "Y" %><%= number_field_tag 'yvalue' %>
+   <br/>
    <br/>
    <%= button_tag "Evaluate", :value=>"evaluate"  %>
    <%= button_tag "Reset", :value=>"reset" %>

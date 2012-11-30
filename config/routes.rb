@@ -1,4 +1,5 @@
 Eqserver::Application.routes.draw do
+  root :to => 'eq#evaluate'
   match 'eq/evaluate' => 'eq#evaluate', :via => :get
   match 'eq/evaluate' => 'eq#evaluate', :via => :post
 
