@@ -229,6 +229,12 @@ config
   Configuration files for the Rails environment, the routing map, the database,
   and other dependencies.
 
+  ###############################3
+  application.rb has been modified to eliminated references to active_record
+
+  environments/development.rb has also been modified to remove active_record 
+  references
+
 db
   Contains the database schema in schema.rb. db/migrate contains all the
   sequence of Migrations for your schema.

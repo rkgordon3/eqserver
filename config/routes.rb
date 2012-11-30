@@ -1,6 +1,6 @@
 Eqserver::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  match 'eq/evaluate' => 'eq#evaluate', :via => :get
+  match 'eq/evaluate' => 'eq#evaluate', :via => :post
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
