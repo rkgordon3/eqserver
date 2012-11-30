@@ -4,13 +4,12 @@
 <%= form_tag(eq_evaluate_path)  do -%>
    <%= label_tag "X" %><%= number_field_tag 'xvalue' %> 
    <%= label_tag "Y" %><%= number_field_tag 'yvalue' %>
+   <%= label_tag "Result: #{@result}" %>
    <br/>
    <br/>
    <%= button_tag "Evaluate", :value=>"evaluate"  %>
    <%= button_tag "Reset", :value=>"reset" %>
 <% end %>
-<br/>
-<%= label_tag "Result: #{@result}" %>
 <br/>
 <br/>
 <%= label_tag "Previous Attempts:" %>
