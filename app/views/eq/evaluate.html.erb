@@ -1,4 +1,4 @@
-<h2>Dr Todd's Mystery Evaluator</h2>
+<h2>Dr Todd's Mystery Equation Evaluator</h2>
 <br/>
 <br/>
 <%= form_tag(eq_evaluate_path)  do -%>
@@ -12,5 +12,11 @@
 <% end %>
 <br/>
 <br/>
+<div  >
 <%= label_tag "Previous Attempts:" %>
 <%= results_list @results %>
+</div>
+<div id="chartdiv" style="block:none;float:left;height:400px;width:300px; "></div>
+<script>
+$.jqplot('chartdiv', [ <%= @results.to_s %>]);
+</script>
