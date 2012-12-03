@@ -7,6 +7,7 @@ end
 def new
     eq = params[:eq]
     sd = params[:sd].to_f rescue 0.0
+    puts "++++++++++++++++++++new equation is #{eq}"
     ApplicationSettings.set_equation(eq, sd)
 end
 
