@@ -5,8 +5,8 @@ Dr Todd's Mystery Equation Evaluator
 </div>
 <div class="ui-widget-content">
 <%= form_tag(eq_evaluate_path)  do -%>
-   <%= label_tag "X" %><%= number_field_tag 'xvalue' %> 
-   <%= label_tag "Y" %><%= number_field_tag 'yvalue' %>
+   <%= label_tag "X" %><%= number_field_tag 'xvalue' , (@results.last[0] if @results.size > 0) %> 
+   <%= label_tag "Y" %><%= number_field_tag 'yvalue' , (@results.last[1] if @results.size > 0) %>
    <%= label_tag "Result: #{@result}" %>
    <br/>
    <br/>
