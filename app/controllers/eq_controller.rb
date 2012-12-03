@@ -7,8 +7,8 @@ end
 
 def new
     eq = params[:eq]
-    mean = params[:mean].to_f rescue 0.0
-    ApplicationSettings.set_equation(eq, mean)
+    sd = params[:sd].to_f rescue 0.0
+    ApplicationSettings.set_equation(eq, sd)
     puts "new equation #{ApplicationSettings.get_equation}"
 end
 

@@ -1,6 +1,6 @@
 Eqserver::Application.routes.draw do
   root :to => 'eq#evaluate'
-  match 'eq/new/:eq/:mean' => 'eq#new', :via => :get, :mean => /\d+\.\d+/
+  match 'eq/new/:eq/:sd' => 'eq#new', :via => :get, :sd => /\d+\.\d+/
   match 'eq/evaluate' => 'eq#evaluate', :via => :get
   match 'eq/evaluate' => 'eq#evaluate', :via => :post
 

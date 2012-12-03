@@ -4,20 +4,20 @@ module ApplicationSettings
     @@equation
   end
 
-  def set_equation(eq, mean = 0.0)
-    puts "+++++++++ using mean =  #{mean}"
-    @@mean = mean
-    @@erf = RandomGaussian.new(mean)
+  def set_equation(eq, sd = 0.0)
+    puts "+++++++++ using sd =  #{sd}"
+    @@sd = sd
+    @@erf = RandomGaussian.new(0.0, sd)
     @@equation = eq
   end
 
-  def mean
-   @@mean
+  def standard_dev
+   @@sd
   end
 
   def error
     @@erf.rand
   end
 
-  module_function :set_equation, :get_equation, :error, :mean
+  module_function :set_equation, :get_equation, :error, :standard_dev
 end
