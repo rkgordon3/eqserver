@@ -11,7 +11,6 @@ Dr Todd's Mystery Equation Evaluator
    <br/>
    <br/>
    <%= button_tag "Evaluate", :value=>"evaluate"  %>
-   <%= button_tag "Reset", :value=>"reset" %>
 <% end %>
 </div>
 </div>
@@ -21,7 +20,8 @@ Dr Todd's Mystery Equation Evaluator
 <%= label_tag "Previous Attempts:" %>
 </div>
 <%= results_list @results %>
-<%= button_tag "CSV" %>
+<%= button_tag "Reset", :value=>"reset" %>
+<%= button_tag "CSV" if @results.size > 0 %>
 <% end %>
 </div>
 </div>

@@ -7,16 +7,10 @@ end
 def new
     eq = params[:eq]
     sd = params[:sd].to_f rescue 0.0
-    puts "++++++++++++++++++++new equation is #{eq}"
     ApplicationSettings.set_equation(eq, sd)
 end
 
 def evaluate
-    if params[:button] == 'reset' then  
-   	 @result = "" 
-   	 @results = []
-         session['results'] = nil
-    else
        def values_not_provided(params) 
          @x = params[:xvalue]
          @y = params[:yvalue]
@@ -29,11 +23,16 @@ def evaluate
 
           @results << [ @x, @y, @result]
         end unless values_not_provided(params)
-     end
 end
 
 def csv
-     @results = session['results'] || (session['results'] = [])
+    if params[:button] == 'reset' then  
+   	 @result = "" 
+   	 @results = []
+         session['results'] = nil
+         redirect_to eq_evaluate_path, :action=> :get
+    end
+    @results = session['results'] || (session['results'] = [])
 end
 
 end
