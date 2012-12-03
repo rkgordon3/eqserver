@@ -3,6 +3,7 @@ Eqserver::Application.routes.draw do
   match 'eq/new/:eq/:sd' => 'eq#new', :via => :get, :sd => /\d+\.\d+/
   match 'eq/evaluate' => 'eq#evaluate', :via => :get
   match 'eq/evaluate' => 'eq#evaluate', :via => :post
+  match 'eq/csv' => 'eq#csv', :via => :post
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

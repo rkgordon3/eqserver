@@ -1,7 +1,6 @@
 class EqController < ApplicationController
 
 def expression(x,y)
-    puts "inside expression #{ApplicationSettings.get_equation} x=#{x} y=#{y}"
     eval(ApplicationSettings.get_equation.gsub("x", x).gsub("y", y))+ApplicationSettings.error
 end
 
@@ -9,12 +8,9 @@ def new
     eq = params[:eq]
     sd = params[:sd].to_f rescue 0.0
     ApplicationSettings.set_equation(eq, sd)
-    puts "new equation #{ApplicationSettings.get_equation}"
 end
 
 def evaluate
-
-
     if params[:button] == 'reset' then  
    	 @result = "" 
    	 @results = []
@@ -27,10 +23,16 @@ def evaluate
        end
 
         @results = session['results'] || (session['results'] = [])
-        @result = expression(params[:xvalue], params[:yvalue]) unless values_not_provided(params)
+        begin 
+          @result = expression(params[:xvalue], params[:yvalue]) 
 
-        @results << [ @x, @y, @result]
+          @results << [ @x, @y, @result]
+        end unless values_not_provided(params)
      end
+end
+
+def csv
+     @results = session['results'] || (session['results'] = [])
 end
 
 end

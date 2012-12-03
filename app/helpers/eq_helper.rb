@@ -8,4 +8,12 @@ module EqHelper
      out.html_safe
   end
 
+  def csv_list lst
+     out = ""
+     lst.each do |e| 
+       out += "#{e[0]},#{e[1]},#{e[2]}<br/>" 
+     end 
+     out.html_safe
+  end
+
 end

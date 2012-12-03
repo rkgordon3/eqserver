@@ -1,6 +1,9 @@
-<h2>Dr Todd's Mystery Equation Evaluator</h2>
-<br/>
-<br/>
+
+<div class="ui-widget" >
+<div class="ui-widget-header" >
+Dr Todd's Mystery Equation Evaluator
+</div>
+<div class="ui-widget-content">
 <%= form_tag(eq_evaluate_path)  do -%>
    <%= label_tag "X" %><%= number_field_tag 'xvalue' %> 
    <%= label_tag "Y" %><%= number_field_tag 'yvalue' %>
@@ -10,13 +13,20 @@
    <%= button_tag "Evaluate", :value=>"evaluate"  %>
    <%= button_tag "Reset", :value=>"reset" %>
 <% end %>
-<br/>
-<br/>
-<div  >
+</div>
+</div>
+<div class="ui-widget-content">
+<%= form_tag(eq_csv_path) do -%>
+<div class="ui-widget-header" >
 <%= label_tag "Previous Attempts:" %>
+</div>
 <%= results_list @results %>
+<%= button_tag "CSV" %>
+<% end %>
+</div>
 </div>
 <div id="chartdiv" style="block:none;float:left;height:400px;width:300px; "></div>
 <script>
 $.jqplot('chartdiv', [ <%= @results.to_s %>]);
 </script>
+
