@@ -2,12 +2,13 @@ class EqController < ApplicationController
 
 def expression(x,y)
     puts "inside expression #{ApplicationSettings.get_equation} x=#{x} y=#{y}"
-    eval(ApplicationSettings.get_equation.gsub("x", x).gsub("y", y))
+    eval(ApplicationSettings.get_equation.gsub("x", x).gsub("y", y))+ApplicationSettings.error
 end
 
 def new
     eq = params[:eq]
-    ApplicationSettings.set_equation(eq)
+    mean = params[:mean].to_f rescue 0.0
+    ApplicationSettings.set_equation(eq, mean)
     puts "new equation #{ApplicationSettings.get_equation}"
 end
 
