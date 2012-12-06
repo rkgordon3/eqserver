@@ -1,9 +1,9 @@
 Eqserver::Application.routes.draw do
-  root :to => 'eq#evaluate'
+  root :to => 'eq#evaluate_new'
   #match 'eq/new/:eq/:sd' => 'eq#new', :via => :post, :sd => /\d+\.\d+/, :eq=> /[^V]+/
   match 'eq/new' => 'eq#create', :via => :post
   match 'eq/new' => 'eq#new', :via => :get
-  match 'eq/evaluate' => 'eq#evaluate', :via => :get
+  match 'eq/evaluate' => 'eq#evaluate_new', :via => :get
   match 'eq/evaluate' => 'eq#evaluate', :via => :post
   match 'eq/csv' => 'eq#csv', :via => :post
 

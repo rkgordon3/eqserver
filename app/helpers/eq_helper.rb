@@ -2,13 +2,17 @@ module EqHelper
   def results_list lst 
      out = "<table>"
      lst.each do |e| 
-       if e[0].nil? then next end
+       next if e[0].nil?
        out += "<tr>"
        func = "f("
-       e[0].each_pair do |k,v|
+       begin
+         e[0].each_pair do |k,v|
             out += "<td>#{k}=#{v}</td>"
-            func += ", " unless func == "f(" 
+	    func += ", " unless func == "f(" 
             func += k  
+         end
+       rescue
+         next
        end
        func += ")"
        out += "<td>#{func}=#{e[1]}</td>"

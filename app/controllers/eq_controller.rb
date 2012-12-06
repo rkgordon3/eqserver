@@ -9,6 +9,15 @@ def create
     ApplicationSettings.set_equation(Equation.new(eq, sd))
 end
 
+def evaluate_new
+    begin
+      session['results'] = []
+      render 'evaluate'
+    rescue => e
+      render 'contact_instructor'
+    end
+end
+
 def evaluate
         @results = session['results'] || (session['results'] = [])
         begin 

@@ -6,5 +6,7 @@
 <% end %>
 </div>
 <div class="ui-widget-header" >
-New equation set: <%= ApplicationSettings.get_equation rescue "No equation"  %>
+New equation: <%= ApplicationSettings.get_equation rescue "No equation"  %>
+<br/>
+Standard Deviation: <%= ApplicationSettings.get_equation.standard_deviation rescue "None"  %>
 </div>

@@ -15,4 +15,9 @@ class Equation
      raise ArgumentError, 'Wrong number of variables'  unless hash.keys == @vars.keys 
      eval(@eq.gsub(@regex, hash)) + @erf.rand
   end
+  
+  def to_s 
+    @eq rescue "undefined"
+  end
 end
+

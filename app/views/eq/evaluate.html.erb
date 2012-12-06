@@ -18,11 +18,12 @@ Dr Todd's Mystery Equation Evaluator
 <div class="ui-widget-content">
 <%= form_tag(eq_csv_path) do -%>
 <div class="ui-widget-header" >
-<%= label_tag "Previous Attempts:" %>
-</div>
-<%= results_list @results %>
-<%= button_tag "Reset", :value=>"reset" %>
-<%= button_tag "CSV" if @results.size > 0 %>
+<%= content_tag :div do -%>
+   <%= label_tag "Previous Attempts:" %>
+   <%= results_list @results   %>
+   <%= button_tag "Reset", :value=>"reset" %>
+   <%= button_tag "CSV" if @results.size > 0 %>
+<% end if not @results.nil? -%>
 <% end %>
 </div>
 </div>
