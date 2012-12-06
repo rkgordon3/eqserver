@@ -3,7 +3,7 @@
 <div class="ui-widget-header" >
 Dr Todd's Mystery Equation Evaluator
 </div>
-<div class="ui-widget-content">
+<div class="ui-widget-content"  >
 <%= form_tag(eq_evaluate_path)  do -%>
    <% ApplicationSettings.get_equation.vars.each_key do |k| -%>
      <%= label_tag k  %><%= number_field_tag "variables[#{k}]"  %> <br/>
