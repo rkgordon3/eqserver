@@ -1,0 +1,10 @@
+<div class="ui-widget-content" >
+<%= form_tag(eq_new_path) do -%>
+  <%= label_tag "Equation" %><%= text_field_tag "eq" %>
+  <%= label_tag "Std. Dev." %><%= number_field_tag "sd" %>
+   <%= button_tag "Create", :value=>"create"  %>
+<% end %>
+</div>
+<div class="ui-widget-header" >
+New equation set: <%= ApplicationSettings.get_equation rescue "No equation"  %>
+</div>

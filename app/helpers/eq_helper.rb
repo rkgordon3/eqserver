@@ -2,7 +2,17 @@ module EqHelper
   def results_list lst 
      out = "<table>"
      lst.each do |e| 
-       out += "<tr><td>x=#{e[0]}</td><td>y=#{e[1]}</td><td>f(x,y)=#{e[2]}</td></tr>" 
+       if e[0].nil? then next end
+       out += "<tr>"
+       func = "f("
+       e[0].each_pair do |k,v|
+            out += "<td>#{k}=#{v}</td>"
+            func += ", " unless func == "f(" 
+            func += k  
+       end
+       func += ")"
+       out += "<td>#{func}=#{e[1]}</td>"
+       out += "</tr>"
      end 
      out += "</table>"
      out.html_safe
@@ -11,7 +21,8 @@ module EqHelper
   def csv_list(lst, sep)
      out = ""
      lst.each do |e| 
-       out += "#{e[0]}#{sep}#{e[1]}#{sep}#{e[2]}<br/>" 
+       e[0].each_value {  |v| out += "#{v}#{sep}" }
+       out += "#{e[1]}<br/>" 
      end 
      out.html_safe
   end
