@@ -6,7 +6,7 @@ Dr Todd's Mystery Equation Evaluator
 <div class="ui-widget-content"  >
 <%= form_tag(eq_evaluate_path)  do -%>
    <% ApplicationSettings.get_equation.vars.each_key do |k| -%>
-     <%= label_tag k  %><%= number_field_tag "variables[#{k}]"  %> <br/>
+     <%= label_tag k  %><%= text_field_tag "variables[#{k}]"  %> <br/>
    <% end %>
    <%= label_tag "Result: #{@result}" %>
    <br/>
